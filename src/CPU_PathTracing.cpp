@@ -3,6 +3,9 @@
 
 #include <stb_image.h>
 #include <stb_image_write.h>
+#include <Eigen/Dense>
+
+using namespace Eigen;
 
 int main()
 {
@@ -34,6 +37,8 @@ int main()
             outputData[index++] = static_cast<int>(255.999*b);
         }
     }
+
+    Vector3f v;
 
     stbi_write_png(outputPath, image_width, image_height, 3, static_cast<void*>(outputData), CHANNEL_NUM*image_width);
 
